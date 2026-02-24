@@ -52,7 +52,7 @@ const Classroom = () => {
     });
 
     const studentsPerPage = 24;
-    const totalPages = Math.ceil(filteredStudents.length / studentsPerPage);
+    const totalPages = Math.max(1, Math.ceil(filteredStudents.length / studentsPerPage));
     const startIndex = (page - 1) * studentsPerPage;
     const endIndex = startIndex + studentsPerPage;
     const studentsOnPage = filteredStudents.slice(startIndex, endIndex);
