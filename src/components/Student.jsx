@@ -1,7 +1,22 @@
 const Student = (props) => {
     return <div>
         <h2>{props.name.first} {props.name.last}</h2>
-        {/* TODO Student data goes here! Do NOT modify the element above that displays the name.*/}
+        <p><strong>{props.major}</strong></p>
+
+        <p>
+            {props.name.first} is taking {props.numCredits} credits and is{" "}
+            {props.fromWisconsin ? "from Wisconsin." : "not from Wisconsin."}
+        </p>
+
+        <p>
+            They have {props.interests.length} interest(s) including:
+        </p>
+
+        <ul>
+            {props.interests.map(interest => (
+                <li key={interest}>{interest}</li>
+            ))}
+        </ul>
     </div>
 }
 
