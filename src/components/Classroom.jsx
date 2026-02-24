@@ -101,29 +101,29 @@ const Classroom = () => {
                     </Col>
                 ))}
             </Row>
+            <Pagination className="justify-content-center mt-4">
+
+                <Pagination.Prev
+                    disabled={page === 1 || totalPages === 0}
+                    onClick={() => setPage(page - 1)}
+                />
+
+                {Array.from({ length: totalPages }, (_, i) => (
+                    <Pagination.Item
+                        key={i + 1}
+                        active={page === i + 1}
+                        onClick={() => setPage(i + 1)}
+                    >
+                        {i + 1}
+                    </Pagination.Item>
+                ))}
+                
+                <Pagination.Next
+                    disabled={page === totalPages || totalPages === 0}
+                    onClick={() => setPage(page + 1)}
+                />
+            </Pagination>
         </Container>
-        <Pagination className="justify-content-center mt-4">
-
-            <Pagination.Prev
-                disabled={page === 1 || totalPages === 0}
-                onClick={() => setPage(page - 1)}
-            />
-
-            {Array.from({ length: totalPages }, (_, i) => (
-                <Pagination.Item
-                    key={i + 1}
-                    active={page === i + 1}
-                    onClick={() => setPage(i + 1)}
-                >
-                    {i + 1}
-                </Pagination.Item>
-            ))}
-            
-            <Pagination.Next
-                disabled={page === totalPages || totalPages === 0}
-                onClick={() => setPage(page + 1)}
-            />
-        </Pagination>
     </div>
 
 }
